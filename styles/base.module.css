@@ -1,1 +1,2 @@
-html {background-color: indianred;}
+html {background: rgb(0,179,57);
+    background: linear-gradient(120deg, rgba(0,179,57,1) 0%, rgba(63,206,254,1) 35%, rgba(123,245,109,1) 72%, rgba(0,255,166,1) 100%);}

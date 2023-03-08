@@ -1,4 +1,5 @@
 import { PrismaClient } from '@prisma/client'
+
 const prisma = new PrismaClient();
 // https://vercel.com/guides/nextjs-prisma-postgres
 // lib/prisma.ts

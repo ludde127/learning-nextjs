@@ -1,0 +1,22 @@
+@keyframes slide-from-top  {
+    from {
+        transform: translateY(-50%) rotate(-45deg);
+        transform-origin: top left;
+
+    }
+    to {
+        transform: translateY(0) rotate(0);
+    }
+
+}
+
+
+
+.megaTitle {
+    animation: slide-from-top 1.5s forwards;
+    transition-timing-function: ease-out;
+    font-size: 6em;
+    background: linear-gradient(120deg, rgba(0,179,57,1) 0%, rgba(63,206,254,1) 35%, rgba(123,245,109,1) 72%, rgba(0,255,166,1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}

@@ -1,0 +1,29 @@
+.wrapper {
+    animation: slide-from-bottom 1s forwards;
+}
+
+.wrapper hr {
+    margin-top: 5%;
+    width: 50%;
+
+}
+
+@keyframes slide-from-bottom {
+    from {
+        transform: translateY(300%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+.envelope {color: white;fill:white;}
+
+.link_group {
+    margin-left: 2%;
+    margin-top: 1%;
+    display: inline;
+}
+.link_group a {text-decoration: underline aqua;padding: 1%;display: inline-block;}
+
+.link_group a img {width: 32px; height: auto; margin: 0; margin-left: 10px; padding: 0;float: right}

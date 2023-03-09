@@ -1,0 +1,29 @@
+
+.text_section {
+    margin-top : 3vh;
+    margin-bottom: 3vh;
+    max-width: 80%;
+    overflow: hidden;
+    animation: slide-in 1s forwards;
+}
+
+.text_section hr {
+    max-width: 25%;
+
+}
+
+@keyframes slide-in {
+    from {
+        transform: translateX(-100%);
+    }
+    to {transform: translateX(0)
+    }
+}
+
+.text_section .text_holder {
+    padding: 1%;
+}
+
+.text_holder p {
+    margin-left: 1%;
+}

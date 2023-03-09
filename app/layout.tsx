@@ -1,11 +1,15 @@
 import React from "react";
-import "@/styles/global.css";
+import "./global.css";
 
 export const metadata = {
     title: "Index"
 }
 
-export default function RootLayout({ children }: {children: React.ReactNode;}) {
+export interface Props {
+    children: React.ReactNode | String
+}
+
+export default function RootLayout({ children }: Props) {
     return (
         <html lang="en">
         <body>

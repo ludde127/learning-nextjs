@@ -1,0 +1,33 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/*
+html {background: rgb(0,179,57);
+    background: linear-gradient(120deg, rgba(0,179,57,1) 0%, rgba(63,206,254,1) 35%, rgba(123,245,109,1) 72%, rgba(0,255,166,1) 100%);
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+}
+*/
+
+
+html {
+    background-color: black;
+    color: white;
+    position: absolute;
+    width: 100vw;
+    overflow: hidden;
+}
+h1 {font-size: 3em;}
+h2 {font-size: 1.5em;}
+h3 {font-size: 1.3em;}
+
+hr {    border-top: 0.2vw solid whitesmoke;
+}
+.main-window {margin-left: 15%;margin-top: 8%}
+
+.animation-container {
+    overflow: visible;
+    z-index: 11;
+}

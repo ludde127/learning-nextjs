@@ -20,10 +20,11 @@
 .envelope {color: white;fill:white;}
 
 .link_group {
-    margin-left: 2%;
     margin-top: 1%;
     display: inline;
+    border-top: solid 2px white;
+    padding-top:1%;
 }
-.link_group a {text-decoration: underline aqua;padding: 1%;display: inline-block;}
+.link_group a {text-decoration: none;padding: 1%;display: inline-block;}
 
-.link_group a img {width: 32px; height: auto; margin: 0; margin-left: 10px; padding: 0;float: right}
+.link_group a img {width: 32px; height: auto; margin: 0; margin-left: 10px; padding: 0;float: right }

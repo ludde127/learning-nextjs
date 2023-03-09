@@ -5,6 +5,7 @@
     max-width: 80%;
     overflow: hidden;
     animation: slide-in 1s forwards;
+    display: inline-block;
 }
 
 .text_section hr {
@@ -22,8 +23,12 @@
 
 .text_section .text_holder {
     padding: 1%;
+    border-top: solid 2px white;
 }
+
 
 .text_holder p {
     margin-left: 1%;
 }
+
+.text_section > img {float:right;}

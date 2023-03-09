@@ -1,25 +1,30 @@
 import React, {ReactElement, ReactNode} from "react";
 import styles from  "../styles/textSection.module.css";
+import AvatarImage from "@/components/AvatarImage";
 
 interface TextSegmentProps {
     title: String
 }
 
 
-const TextSection = ({children, title}: {children: React.ReactNode, title: String}) => {
+const TextSection = ({children, title, imageSrc}: {children: React.ReactNode, title: String, imageSrc?: String}) => {
 
+    let image = <></>;
+    console.log(imageSrc)
+    if (imageSrc) {
+        image = <AvatarImage src={imageSrc}/>
+    }
 
     return (
-        <div className="animation-container">
+        <section className="animation-container" id={title as string}>
         <div className={styles.text_section}>
-            <hr/>
             <div className={styles.text_holder}>
                 <h2>{title}</h2>
                 <p>{children}</p>
             </div>
-
+            {image}
         </div>
-        </div>);
+        </section>);
 }
 
 export default TextSection;

@@ -7,7 +7,7 @@ html {
     background-color: black;
     color: white;
 
-    width: 100vw;
+    width: 96vw;
 }
 h1 {
     font-size: 3em;
@@ -18,32 +18,29 @@ h1 {
 }
 
 
-
 h2 {
-    font-size: 1.5em;
-    background: linear-gradient(120deg, rgba(0,179,57,1) 0%, rgba(63,206,254,1) 35%, rgba(123,245,109,1) 72%, rgba(0,255,166,1) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    font-size: 2em;
+    color: rgba(63,226,254,1);
 }
 
 h3 {font-size: 1.3em;}
 
 hr {    border-top: 0.2vw solid whitesmoke;
 }
-.main-window {margin-left: 18%;margin-top: 8%;overflow: hidden}
+.main-window {margin-left: 18%;margin-top: 3%;overflow: hidden}
 
 
 .tree-image {
     height: 60vh;
     position: absolute;
-    right: 15%;
+    right: 1vw;
     bottom: 0;
     overflow: hidden;
 }
 
 @media all and (max-width: 800px) {
     /* put your css styles in here */
-    .main-window {margin-left: 5%; margin-top: 4%; align-content: center;}
+    .main-window {margin-left: 5%; margin-top: 2%; align-content: center;}
 }
 
 @media all and (max-width: 1300px) {
@@ -51,9 +48,14 @@ hr {    border-top: 0.2vw solid whitesmoke;
 
 }
 
-.animation-container {
+.animation-container-fit-content {
     overflow: visible;
-    z-index: 11;
-
+    width: fit-content;
 }
 
+.animation-container {
+    overflow: visible;
+}
+
+.normal-a {text-decoration: underline;}
+.project-img {width: auto; height: 30vh;border-radius: 1em;margin-left:2vw;padding:0.5%;}

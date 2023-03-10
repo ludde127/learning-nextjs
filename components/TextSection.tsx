@@ -10,13 +10,12 @@ interface TextSegmentProps {
 const TextSection = ({children, title, imageSrc}: {children: React.ReactNode, title: String, imageSrc?: String}) => {
 
     let image = <></>;
-    console.log(imageSrc)
     if (imageSrc) {
         image = <AvatarImage src={imageSrc}/>
     }
 
     return (
-        <section className="animation-container" id={title as string}>
+        <section className="animation-container-fit-content" id={title as string}>
         <div className={styles.text_section}>
             <div className={styles.text_holder}>
                 <h2>{title}</h2>

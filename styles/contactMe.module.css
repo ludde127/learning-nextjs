@@ -10,7 +10,7 @@
 
 @keyframes slide-from-bottom {
     from {
-        transform: translateY(300%);
+        transform: translateY(-200%);
     }
     to {
         transform: translateY(0);

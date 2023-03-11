@@ -7,11 +7,19 @@ interface TextSegmentProps {
 }
 
 
-const TextSection = ({children, title, imageSrc}: {children: React.ReactNode, title: String, imageSrc?: String}) => {
+const TextSection = ({children, title, imageSrc, dangerouslySetInnerHTML}: {children?: React.ReactNode, title: String, imageSrc?: String, dangerouslySetInnerHTML?: string}) => {
 
     let image = <></>;
     if (imageSrc) {
         image = <AvatarImage src={imageSrc}/>
+    }
+
+    let text: JSX.Element;
+
+    if (dangerouslySetInnerHTML != null) {
+        text = <text className="show-white-space" dangerouslySetInnerHTML={{__html: dangerouslySetInnerHTML}}></text>
+    } else {
+        text = <text className="show-white-space">{children}</text>
     }
 
     return (
@@ -19,7 +27,8 @@ const TextSection = ({children, title, imageSrc}: {children: React.ReactNode, ti
         <div className={styles.text_section}>
             <div className={styles.text_holder}>
                 <h2>{title}</h2>
-                <p>{children}</p>
+
+                {text}
             </div>
             {image}
         </div>

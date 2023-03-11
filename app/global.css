@@ -17,17 +17,20 @@ h1 {
 
 }
 
+.show-white-space {
+    white-space: pre-wrap;
+}
 
 h2 {
     font-size: 2em;
-    color: rgba(63,226,254,1);
+    //color: rgba(63,226,254,1);
 }
 
 h3 {font-size: 1.3em;}
 
 hr {    border-top: 0.2vw solid whitesmoke;
 }
-.main-window {margin-left: 18%;margin-top: 3%;overflow: hidden}
+.main-window {margin-left: 18%;margin-top: 3%;overflow: visible}
 
 
 .tree-image {
@@ -57,5 +60,5 @@ hr {    border-top: 0.2vw solid whitesmoke;
     overflow: visible;
 }
 
-.normal-a {text-decoration: underline;}
+a {text-decoration: underline;}
 .project-img {width: auto; height: 30vh;border-radius: 1em;margin-left:2vw;padding:0.5%;}

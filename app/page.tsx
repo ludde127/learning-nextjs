@@ -4,7 +4,6 @@ import Title from "@/components/Title";
 import {Open_Sans} from "next/font/google";
 
 
-import AvatarImage from "@/components/AvatarImage";
 const redHatDisplay = Open_Sans({subsets: ["latin"]});
 export const metadata = {
     title: "Ludvig Lindholm",
@@ -13,7 +12,7 @@ export const metadata = {
 
 const cmsServer = "https://llindholm.com/";
 
-const fetcher = (...args: any[]) => fetch(...args).then((resp) => resp.json());
+const fetcher = (url: string) => fetch(url).then((resp) => resp.json());
 
 
 interface TextSectionApi {
@@ -51,10 +50,9 @@ const apiTextSectionDataToTextSection = (obj: TextSectionApi) => {
 export default async function hello_world() {
     const data = await fetcher(cmsServer+"personal-site/api/");
 
-    let textSections = <></>;
+    let textSections: JSX.Element;
 
     if (data != null) {
-        console.log("TEST", data);
 
 
 

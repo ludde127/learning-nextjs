@@ -7,8 +7,13 @@ import {Open_Sans} from "next/font/google";
 const redHatDisplay = Open_Sans({subsets: ["latin"]});
 export const metadata = {
     title: "Ludvig Lindholm",
-    description: "Ludvig Lindholm, utvecklar små till mellanstora hemsidor som är snabba och har många funktioner.",
-
+    description: "Ludvig Lindholm är en passionerad webbutvecklare som skapar" +
+        " användarvänliga och funktionella webbplatser." +
+        " Ta en titt på några av hans projekt, inklusive CLterapi - en häftig webbplats med integrerat" +
+        " tidsbokningssystem och betalningssystem med stöd för Swish. På LLindholm hittar du en mängd olika" +
+        " funktioner, inklusive anteckningar och flashcards för inlärning, samt en innovativ funktion som automatiskt" +
+        " laddar Tesla-bilar när elpriset är som lägst. Upptäck hur Ludvig strävar efter att förbättra" +
+        " användarupplevelsen på LLindholm och fortsätter utveckla denna plattform i framtiden.",
 }
 
 const cmsServer = "https://llindholm.com/";

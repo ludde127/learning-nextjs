@@ -16,9 +16,9 @@ export const metadata = {
         " användarupplevelsen på LLindholm och fortsätter utveckla denna plattform i framtiden.",
 }
 
-const cmsServer = "https://llindholm.com/";
-
-const fetcher = (url: string) => fetch(url).then((resp) => resp.json());
+//const cmsServer = "https://llindholm.com/";
+const cmsServer = "http://127.0.0.1:8000/";
+const fetcher = (url: string, obj?: any) => fetch(url, obj).then((resp) => resp.json());
 
 
 interface TextSectionApi {
@@ -56,7 +56,8 @@ const apiTextSectionDataToTextSection = (obj: TextSectionApi) => {
 export default async function personalSite() {
     let data: any | null = null;
     try {
-        data = await fetcher(cmsServer + "personal-site/api/");
+        // Revalidate every 10 min
+        data = await fetcher(cmsServer + "personal-site/api/", { next: { revalidate: 10*60 } });
     } catch (e) {}
     let textSections: JSX.Element[];
 

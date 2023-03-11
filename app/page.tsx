@@ -1,4 +1,4 @@
-import TextSection from "@/components/TextSection";
+import {TextSectionBase} from "@/components/TextSection";
 import ContactMe from "@/components/ContactMe";
 import Title from "@/components/Title";
 import {Open_Sans} from "next/font/google";
@@ -45,33 +45,46 @@ const apiTextSectionDataToTextSection = (obj: TextSectionApi) => {
     }
 
     // TODO DONT SET THIS SO UNSAFELY
-    return <TextSection title={obj.fields.title} dangerouslySetInnerHTML={modifiedHtml}/>;
+    return <TextSectionBase title={obj.fields.title} dangerouslySetInnerHTML={modifiedHtml}/>;
 }
 
-export default async function hello_world() {
-    const data = await fetcher(cmsServer+"personal-site/api/");
-
-    let textSections: JSX.Element;
+export default async function personalSite() {
+    let data: any | null = null;
+    try {
+        data = await fetcher(cmsServer + "personal-site/api/");
+    } catch (e) {}
+    let textSections: JSX.Element[];
 
     if (data != null) {
-
-
-
-        textSections = <>{
+        textSections =
             data.sort((a: TextSectionApi, b: TextSectionApi) => b.fields.weight-a.fields.weight). // The one with the highest weight should be first
-            map((obj: TextSectionApi) => apiTextSectionDataToTextSection(obj))
-        }</>;
+            map((obj: TextSectionApi) => apiTextSectionDataToTextSection(obj));
     } else {
-        textSections = <p>Could not load data</p>;
+        textSections = [<p className="error-p">Could not load data</p>];
     }
+
+    let firstTextSection = textSections.shift();
+
     return (<>
     <div className={redHatDisplay.className}>
-    <div className="mx-auto main-window">
-        <Title>Välkommen!</Title>
-        <ContactMe email={"ludvig@llindholm.com"}
-                   github={"https://github.com/ludde127"}
-                   linkedIn={"https://www.linkedin.com/in/ludvig-lindholm-6509b4256/"}/>
-        {textSections}
+    <div className="main-window">
+        <div className="centered full-width">
+            <Title>Välkommen!</Title>
+            <ContactMe email={"ludvig@llindholm.com"}
+                       github={"https://github.com/ludde127"}
+                       linkedIn={"https://www.linkedin.com/in/ludvig-lindholm-6509b4256/"}/>
+            <section className="animation-container-fit-content centered border-bottom ">
+                {firstTextSection}
+            </section>
+        </div>
+
+        <div className="flex flex-col md:flex-row flex-wrap flex-auto">
+
+                {textSections.map((t) =>
+                    <section className="animation-container-fit-content basis-1/2">{t}</section>
+                )}
+
+        </div>
     </div>
     </div>
     </>);

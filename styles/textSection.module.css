@@ -1,18 +1,20 @@
 
 .text_section {
-    margin-top : 3%;
-    margin-bottom: 3%;
-    margin-right: 3%;
+    padding:1%;
+    margin:1%;
     overflow: hidden;
     animation: slide-in 1s forwards;
     display: inline-block;
-    width: fit-content;
+    width: auto;
+
 }
 
 .text_section hr {
     max-width: 25%;
 
 }
+
+.text_section_text {max-width: 600px;}
 
 @keyframes slide-in {
     from {
@@ -24,13 +26,12 @@
 
 .text_section .text_holder {
     padding: 1%;
-    width: fit-content;
-    border-top: solid 2px white;
 }
 
 
 .text_holder p {
     margin-left: 1%;
+    max-width: 400px;
 }
 
 .text_section > img {float:right;}

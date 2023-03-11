@@ -17,6 +17,31 @@ h1 {
 
 }
 
+.border-bottom {border-bottom: white 2px solid;}
+.border-top {border-top: white 2px solid;}
+
+.animation-container-fit-content {
+    overflow: visible;
+    width: fit-content;
+}
+
+.animation-container {
+    overflow: visible;
+}
+
+.centered {margin:auto;text-align: center; align-content: center;}
+.full-width {width: 100%;}
+a {text-decoration: underline;}
+.project-img {
+    width: 35vw;
+    height: auto;
+    border-radius: 1em;
+    flex-shrink: 0;
+    margin:auto;
+    margin-top:1vh;
+}
+
+
 .show-white-space {
     white-space: pre-wrap;
 }
@@ -28,9 +53,9 @@ h2 {
 
 h3 {font-size: 1.3em;}
 
-hr {    border-top: 0.2vw solid whitesmoke;
+hr {    border-top: 0vw solid whitesmoke;
 }
-.main-window {margin-left: 18%;margin-top: 3%;overflow: visible}
+.main-window {margin-left: 3%;margin-top: 3%;overflow: visible;}
 
 
 .tree-image {
@@ -43,7 +68,8 @@ hr {    border-top: 0.2vw solid whitesmoke;
 
 @media all and (max-width: 800px) {
     /* put your css styles in here */
-    .main-window {margin-left: 5%; margin-top: 2%; align-content: center;}
+    .main-window {margin-left: 1%; margin-top: 2%; align-content: center;}
+    .project-img {width: 80vw;}
 }
 
 @media all and (max-width: 1300px) {
@@ -51,14 +77,4 @@ hr {    border-top: 0.2vw solid whitesmoke;
 
 }
 
-.animation-container-fit-content {
-    overflow: visible;
-    width: fit-content;
-}
-
-.animation-container {
-    overflow: visible;
-}
-
-a {text-decoration: underline;}
-.project-img {width: auto; height: 30vh;border-radius: 1em;margin-left:2vw;padding:0.5%;}
+.error-p {font-size: 2em; color: indianred;}

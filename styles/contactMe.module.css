@@ -22,9 +22,16 @@
 .link_group {
     margin-top: 1%;
     display: inline;
-    border-top: solid 2px white;
     padding-top:1%;
+    padding-bottom: 1%;
+
+    border-bottom: white 2px solid;
 }
+
+@media all and (max-width: 800px) {
+    .link_group {padding-bottom: 2.5%;}
+}
+
 .link_group a {text-decoration: none;padding: 1%;display: inline-block;}
 
 .link_group a img {width: 32px; height: auto; margin: 0; margin-left: 10px; padding: 0;float: right }

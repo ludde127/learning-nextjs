@@ -15,10 +15,14 @@
 .megaTitle {
     animation: slide-from-top 1.5s forwards;
     transition-timing-function: ease-out;
-    font-size: 6em;
+    font-size: 7em;
+    text-align: center;
 }
 
 @media all and (max-width: 800px) {
     /* put your css styles in here */
-    .megaTitle {text-align: center;}
+    .megaTitle {
+        text-align: center;
+        font-size: 5em;
+                }
 }

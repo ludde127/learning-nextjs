@@ -7,7 +7,7 @@ interface TextSegmentProps {
 }
 
 
-const TextSection = ({children, title, imageSrc, dangerouslySetInnerHTML}: {children?: React.ReactNode, title: String, imageSrc?: String, dangerouslySetInnerHTML?: string}) => {
+const TextSectionBase = ({children, title, imageSrc, dangerouslySetInnerHTML}: {children?: React.ReactNode, title: String, imageSrc?: String, dangerouslySetInnerHTML?: string}) => {
 
     let image = <></>;
     if (imageSrc) {
@@ -23,11 +23,12 @@ const TextSection = ({children, title, imageSrc, dangerouslySetInnerHTML}: {chil
     }
 
     return (
-        <section className="animation-container-fit-content" id={title as string}>
+        <section className="animation-container-fit-content basis-1/2" id={title as string}>
         <div className={styles.text_section}>
             <div className={styles.text_holder}>
-                <h2>{title}</h2>
-
+                <div className="centered">
+                    <h2>{title}</h2>
+                </div>
                 {text}
             </div>
             {image}
@@ -35,4 +36,19 @@ const TextSection = ({children, title, imageSrc, dangerouslySetInnerHTML}: {chil
         </section>);
 }
 
-export default TextSection;
+const TextSection = ({children, title, imageSrc, dangerouslySetInnerHTML}:
+                             {children?: React.ReactNode, title: String, imageSrc?: String, dangerouslySetInnerHTML?: string}) => {
+    return <section className="animation-container-fit-content" id={title as string}>
+        {TextSectionBase({children, title, imageSrc, dangerouslySetInnerHTML})}
+    </section>
+}
+
+const FlexTextSection = ({children, title, imageSrc, dangerouslySetInnerHTML}:
+                         {children?: React.ReactNode, title: String, imageSrc?: String, dangerouslySetInnerHTML?: string}) => {
+    return <section className="animation-container-fit-content basis-1/2" id={title as string}>
+        {TextSectionBase({children, title, imageSrc, dangerouslySetInnerHTML})}
+    </section>
+}
+
+
+export {TextSection, FlexTextSection, TextSectionBase};

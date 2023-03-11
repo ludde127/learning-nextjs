@@ -16,8 +16,8 @@ export const metadata = {
         " användarupplevelsen på LLindholm och fortsätter utveckla denna plattform i framtiden.",
 }
 
-//const cmsServer = "https://llindholm.com/";
-const cmsServer = "http://127.0.0.1:8000/";
+const cmsServer = "https://llindholm.com/";
+//const cmsServer = "http://127.0.0.1:8000/";
 const fetcher = (url: string, obj?: any) => fetch(url, obj).then((resp) => resp.json());
 
 

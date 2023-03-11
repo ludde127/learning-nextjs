@@ -7,7 +7,8 @@ import {Open_Sans} from "next/font/google";
 const redHatDisplay = Open_Sans({subsets: ["latin"]});
 export const metadata = {
     title: "Ludvig Lindholm",
-    description: "Ludvig Lindholm, utvecklar små till mellanstora hemsidor som är snabba och har många funktioner."
+    description: "Ludvig Lindholm, utvecklar små till mellanstora hemsidor som är snabba och har många funktioner.",
+
 }
 
 const cmsServer = "https://llindholm.com/";

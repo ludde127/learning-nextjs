@@ -60,7 +60,7 @@ export default async function personalSite() {
             data.sort((a: TextSectionApi, b: TextSectionApi) => b.fields.weight-a.fields.weight). // The one with the highest weight should be first
             map((obj: TextSectionApi) => apiTextSectionDataToTextSection(obj));
     } else {
-        textSections = [<p className="error-p">Could not load data</p>];
+        textSections = [<p className="error-p" key="error-loading">Could not load data</p>];
     }
 
     let firstTextSection = textSections.shift();
@@ -80,8 +80,8 @@ export default async function personalSite() {
 
         <div className="flex flex-col md:flex-row flex-wrap flex-auto">
 
-                {textSections.map((t) =>
-                    <section className="animation-container-fit-content basis-1/2">{t}</section>
+                {textSections.map((t, i) =>
+                    <section className="animation-container-fit-content basis-1/2" key={"project"+i}>{t}</section>
                 )}
 
         </div>

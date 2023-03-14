@@ -10,10 +10,10 @@ export const metadata = {
     description: "Ludvig Lindholm är en passionerad webbutvecklare som skapar" +
         " användarvänliga och funktionella webbplatser." +
         " Ta en titt på några av hans projekt, inklusive CLterapi - en häftig webbplats med integrerat" +
-        " tidsbokningssystem och betalningssystem med stöd för Swish. På LLindholm hittar du en mängd olika" +
+        " tidsbokningssystem och betalningssystem med stöd för Swish. På en annan sida Ludvig har skapat; LLindholm, hittar du en mängd olika" +
         " funktioner, inklusive anteckningar och flashcards för inlärning, samt en innovativ funktion som automatiskt" +
         " laddar Tesla-bilar när elpriset är som lägst. Upptäck hur Ludvig strävar efter att förbättra" +
-        " användarupplevelsen på LLindholm och fortsätter utveckla denna plattform i framtiden.",
+        " användarupplevelsen på LLindholm och fortsätter utveckla plattformar in framtiden.",
 }
 
 const cmsServer = "https://llindholm.com/";
@@ -54,7 +54,7 @@ const apiTextSectionDataToTextSection = (obj: TextSectionApi) => {
 }
 
 export default async function personalSite() {
-    let data: any | null = null;
+    let data: any = null;
     try {
         // Revalidate every 10 min
         data = await fetcher(cmsServer + "personal-site/api/", { next: { revalidate: 10*60 } });
@@ -86,9 +86,9 @@ export default async function personalSite() {
 
         <div className="flex flex-col md:flex-row flex-wrap flex-auto">
 
-                {textSections.map((t, i) =>
-                    <section className="animation-container-fit-content basis-1/2" key={"project"+i}>{t}</section>
-                )}
+            {textSections.map((t, i) =>
+                <section className="animation-container-fit-content basis-1/2" key={"project"+i}>{t}</section>
+            )}
 
         </div>
     </div>

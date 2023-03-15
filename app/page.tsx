@@ -16,6 +16,8 @@ export const metadata = {
         " användarupplevelsen på LLindholm och fortsätter utveckla plattformar in framtiden.",
 }
 
+// pm2 stop all && npm run dev && npm run build && pm2 start all
+
 const cmsServer = "https://llindholm.com/";
 //const cmsServer = "http://127.0.0.1:8000/";
 const fetcher = (url: string, obj?: any) => fetch(url, obj).then((resp) => resp.json());

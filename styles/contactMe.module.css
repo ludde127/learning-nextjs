@@ -1,5 +1,5 @@
 .wrapper {
-    animation: slide-from-bottom 1s forwards;
+    animation: slide-from-bottom 1.5s forwards;
 }
 
 .wrapper hr {
@@ -10,7 +10,7 @@
 
 @keyframes slide-from-bottom {
     from {
-        transform: translateY(-200%);
+        transform: translateY(-6%);
     }
     to {
         transform: translateY(0);
@@ -23,8 +23,7 @@
     margin-top: 1%;
     display: inline;
     padding-top:1%;
-    padding-bottom: 1%;
-
+    padding-bottom: 2%;
     border-bottom: white 2px solid;
 }
 
@@ -32,6 +31,6 @@
     .link_group {padding-bottom: 2.5%;}
 }
 
-.link_group a {text-decoration: none;padding: 1%;display: inline-block;}
+.link_group a {text-decoration: none;padding: 1%; display: inline-block;}
 
 .link_group a img {width: 32px; height: auto; margin: 0; margin-left: 10px; padding: 0;float: right }

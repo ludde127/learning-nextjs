@@ -1,6 +1,6 @@
 @keyframes slide-from-top  {
     from {
-        transform: translateY(-100%) rotate(-20deg);
+        transform: translateY(-5%) rotate(-2deg);
         transform-origin: top left;
 
     }

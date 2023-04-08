@@ -3,7 +3,7 @@
     padding:1%;
     margin:1%;
     overflow: hidden;
-    animation: slide-in 1s forwards;
+    animation: slide-in 1.5s forwards;
     display: inline-block;
     width: auto;
 
@@ -18,7 +18,7 @@
 
 @keyframes slide-in {
     from {
-        transform: translateY(-100%);
+        transform: translateY(-2.5%);
     }
     to {transform: translateY(0)
     }

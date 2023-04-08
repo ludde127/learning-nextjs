@@ -25,6 +25,10 @@ h1 {
     width: fit-content;
 }
 
+.text-section {min-width: 200px;}
+
+.float-right {float: right;}
+
 .animation-container {
     overflow: visible;
 }

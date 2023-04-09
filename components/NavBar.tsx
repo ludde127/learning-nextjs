@@ -11,7 +11,8 @@ type Page = {
     model: string,
     pk: bigint,
     fields: {
-        page_title: string
+        page_title: string,
+        intro: string
     }
 
 }
@@ -29,7 +30,7 @@ const NavBar  = async () => {
                     return (<li key={page.pk.toString()}>
                         <a href={"/" + page.pk} className="block p-2 rounded-lg hover:bg-gray-500 no-underline">
                             <div className="font-semibold">{page.fields.page_title}</div>
-                            <span className="text-sm text-white-500 dark:text-white-400">PAGE INTRO PLACEHOLDER</span>
+                            <span className="text-sm text-white-500 dark:text-white-400">{page.fields.intro}</span>
                         </a>
                     </li>);
                 })}

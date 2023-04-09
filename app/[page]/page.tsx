@@ -3,6 +3,7 @@ import {TextSectionBase} from "@/components/TextSection";
 import Title from "@/components/Title";
 import ContactMe from "@/components/ContactMe";
 import NavBar from "@/components/NavBar";
+import Script from "next/script";
 
 /*
 * {"page": [{"model": "personal_site_content.page", "pk": 1, "fields": {"page_title": "Index"}}],
@@ -20,7 +21,9 @@ type PageInterface = {
     model: String,
     pk: bigint,
     fields: {
-        "page_title": String
+        page_title: string
+        intro: string,
+
     }
 }
 
@@ -28,7 +31,7 @@ interface TextSectionApi {
     model: string,
     pk: bigint,
     fields: {
-        title: String,
+        title: string,
         text: string,
         image: string,
         image_alt: string,
@@ -43,7 +46,6 @@ const apiTextSectionDataToTextSection = (obj: TextSectionApi) => {
     let modifiedHtml = obj.fields.text; // This is the base html to be rendered
 
     // Insert the image gotten from the api request
-    console.log(obj)
     if (obj.fields.image) {
         let imageUrl = cmsServer+"media/"+obj.fields.image;
 
@@ -97,13 +99,17 @@ export default async function Page(params: {params: { page: String }, searchPara
                             {firstTextSection}
                         </section>
                     </div>
-                    <div className="flex flex-col sm:flex-row flex-wrap flex-auto gap-1 w-fit mx-auto p-1">
+
+                    <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                         {textSections.map((t, i) =>
-                            <section className="animation-container-fit-content text-section rounded-3xl border-2 w-fit sm:h-fit mx-auto" key={"project"+i}>{t}</section>
+                            <section className="animation-container-fit-content
+                         text-section rounded-3xl border-2 w-fit h-fit" key={"project"+i}>{t}</section>
                         )}
+
                     </div>
                 </div>
             </div>
         </div>
+        <Script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></Script>
     </>);
 }

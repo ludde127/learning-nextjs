@@ -13,9 +13,9 @@ const TextSectionBase = ({children, title, imageSrc, dangerouslySetInnerHTML}: {
     let text: JSX.Element;
 
     if (dangerouslySetInnerHTML != null) {
-        text = <article className="show-white-space" dangerouslySetInnerHTML={{__html: dangerouslySetInnerHTML}}></article>
+        text = <p className="show-white-space" dangerouslySetInnerHTML={{__html: dangerouslySetInnerHTML}}></p>
     } else {
-        text = <article className="show-white-space">{children}</article>
+        text = <p className="show-white-space">{children}</p>
     }
 
     return (

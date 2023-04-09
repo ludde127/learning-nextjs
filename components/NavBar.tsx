@@ -10,7 +10,7 @@ import {cmsServer, fetcher} from "@/app/utils";
 
 type Page = {
     model: string,
-    pk: bigint,
+    pk: number,
     fields: {
         page_title: string,
         intro: string
@@ -22,12 +22,12 @@ const NavBar  = async () => {
     let pages: Page[] = await fetcher(cmsServer + "personal-site/api/pages", {next: {revalidate: 60 * 60}});
     return <>
         <div className={styles.text_section}>
-            <div className="grid text-white w-fit rounded-xl border-4 border-teal-300 w-max">
+            <div className="grid text-white w-fit rounded-xl border-4 border-teal-300 w-max mr-4">
                 <ul>
                     <li className="block p-1 rounded-lg my-2">
-                        <h2>Andra Sidor</h2>
+                        <h2>Alla Sidor</h2>
                     </li>
-                    {pages.map((page: Page) => {
+                    {pages.sort((a, b) => a.pk-b.pk).map((page: Page) => {
                         return (<li key={page.pk.toString()}>
                             <a href={"/" + page.pk}
                                className="block p-2 rounded-lg hover:bg-gray-500 border-stone-700 border-2 no-underline">

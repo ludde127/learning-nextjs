@@ -25,6 +25,8 @@ h1 {
     width: fit-content;
 }
 
+.grid-item {margin-top:10px;margin-bottom: 10px;}
+
 .text-section {min-width: 200px;}
 
 .float-right {float: right;}

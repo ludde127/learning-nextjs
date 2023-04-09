@@ -100,10 +100,10 @@ export default async function Page(params: {params: { page: String }, searchPara
                         </section>
                     </div>
 
-                    <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div className="mx-auto grid content-center" data-masonry='{ "itemSelector": ".grid-item", "gutter": 10, "columnWidth": 50, "percentPosition": true }'>
                         {textSections.map((t, i) =>
                             <section className="animation-container-fit-content
-                         text-section rounded-3xl border-2 w-fit h-fit" key={"project"+i}>{t}</section>
+                         text-section rounded-3xl border-2 w-fit h-fit grid-item" key={"project"+i}>{t}</section>
                         )}
 
                     </div>

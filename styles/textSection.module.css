@@ -6,7 +6,8 @@
     animation: slide-in 1.5s forwards;
     display: inline-block;
     width: auto;
-
+    min-width: 100px;
+    min-height: 80px;
 }
 
 .text_section hr {

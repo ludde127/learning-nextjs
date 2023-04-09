@@ -1,10 +1,6 @@
-import React, {ReactElement, ReactNode} from "react";
+import React from "react";
 import styles from  "../styles/textSection.module.css";
 import AvatarImage from "@/components/AvatarImage";
-
-interface TextSegmentProps {
-    title: String
-}
 
 
 const TextSectionBase = ({children, title, imageSrc, dangerouslySetInnerHTML}: {children?: React.ReactNode, title: String, imageSrc?: String, dangerouslySetInnerHTML?: string}) => {
@@ -17,13 +13,13 @@ const TextSectionBase = ({children, title, imageSrc, dangerouslySetInnerHTML}: {
     let text: JSX.Element;
 
     if (dangerouslySetInnerHTML != null) {
-        text = <text className="show-white-space" dangerouslySetInnerHTML={{__html: dangerouslySetInnerHTML}}></text>
+        text = <article className="show-white-space" dangerouslySetInnerHTML={{__html: dangerouslySetInnerHTML}}></article>
     } else {
-        text = <text className="show-white-space">{children}</text>
+        text = <article className="show-white-space">{children}</article>
     }
 
     return (
-        <section className="animation-container-fit-content basis-1/2" id={title as string}>
+        <section className="animation-container-fit-content rounded-3xl border-2" id={title as string}>
         <div className={styles.text_section}>
             <div className={styles.text_holder}>
                 <div className="centered">

@@ -3,7 +3,7 @@ import {TextSectionBase} from "@/components/TextSection";
 import Title from "@/components/Title";
 import ContactMe from "@/components/ContactMe";
 import NavBar from "@/components/NavBar";
-import Script from "next/script";
+import {MasonryItem, MasonryGrid} from "@/components/Masonry";
 
 /*
 * {"page": [{"model": "personal_site_content.page", "pk": 1, "fields": {"page_title": "Index"}}],
@@ -77,8 +77,8 @@ export default async function Page(params: {params: { page: String }, searchPara
     } else {
         textSections = [<p className="error-p" key="error-loading">Could not load data</p>];
     }
-    console.log(textSections)
-    let firstTextSection = textSections.shift();
+    //console.log(textSections)
+    //let firstTextSection = textSections.shift();
 
 
 
@@ -91,25 +91,14 @@ export default async function Page(params: {params: { page: String }, searchPara
                     <ContactMe email={"ludvig@llindholm.com"}
                                github={"https://github.com/ludde127"}
                                linkedIn={"https://www.linkedin.com/in/ludvig-lindholm-6509b4256/"}/>
-                    <div className="flex flex-col sm:flex-row flex-wrap flex-auto gap-11 w-fit mx-auto p-1 my-3">
-                        <div className="w-fit mx-auto">
-                            <NavBar/>
-                        </div>
-                        <section className="animation-container-fit-content text-section w-fit mx-auto rounded-3xl border-2">
-                            {firstTextSection}
-                        </section>
-                    </div>
 
-                    <div className="mx-auto grid content-center" data-masonry='{ "itemSelector": ".grid-item", "gutter": 10, "columnWidth": 50, "percentPosition": true }'>
-                        {textSections.map((t, i) =>
-                            <section className="animation-container-fit-content
-                         text-section rounded-3xl border-2 w-fit h-fit grid-item" key={"project"+i}>{t}</section>
-                        )}
-
-                    </div>
+                    <MasonryGrid gutter={10}>
+                        {/* @ts-expect-error Async Server Component */}
+                        <MasonryItem><NavBar/></MasonryItem>
+                        {textSections.map((t, i) => <MasonryItem key={i}>{t}</MasonryItem>)}
+                    </MasonryGrid>
                 </div>
             </div>
         </div>
-        <Script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></Script>
     </>);
 }

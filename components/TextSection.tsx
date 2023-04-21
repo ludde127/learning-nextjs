@@ -19,7 +19,7 @@ const TextSectionBase = ({children, title, imageSrc, dangerouslySetInnerHTML}: {
     }
 
     return (
-        <section className="animation-container-fit-content rounded-3xl border-2" id={title as string}>
+        <section className="animation-container-fit-content rounded-3xl border-bottom sm:border-2" id={title as string}>
         <div className={styles.text_section}>
             <div className={styles.text_holder}>
                 <div className="centered">

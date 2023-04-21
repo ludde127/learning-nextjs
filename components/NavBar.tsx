@@ -6,7 +6,7 @@
 * */
 import styles from  "../styles/textSection.module.css";
 
-import {cmsServer, fetcher} from "@/app/utils";
+import {cmsServer, fetcher, getPages} from "@/app/utils";
 
 type Page = {
     model: string,
@@ -19,7 +19,7 @@ type Page = {
 }
 
 const NavBar  = async () => {
-    let pages: Page[] = await fetcher(cmsServer + "personal-site/api/pages", {next: {revalidate: 60 * 60}});
+    let pages: Page[] = await getPages();
     return <>
         <div className={styles.text_section}>
             <div className="grid text-white w-fit rounded-xl border-4 border-teal-300 w-max mr-4">

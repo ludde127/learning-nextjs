@@ -25,7 +25,7 @@ const MasonryGrid = ({children, gutter}: {children: ReactNode, gutter: number}) 
 
     return <>
         <div id="masonry-grid"
-             className="mx-auto grid masonry-grid content-center mt-4 ml-10"
+             className="mx-auto grid masonry-grid content-center mt-4 ml-2 sm:ml-10"
              data-masonry={JSON.stringify(settings)}>
 
             {children}

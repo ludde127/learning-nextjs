@@ -1,50 +1,43 @@
 import React from "react";
-import styles from  "../styles/textSection.module.css";
-import AvatarImage from "@/components/AvatarImage";
 
-
-const TextSectionBase = ({children, title, imageSrc, dangerouslySetInnerHTML}: {children?: React.ReactNode, title: String, imageSrc?: String, dangerouslySetInnerHTML?: string}) => {
-
+const TextSection = ({children, title, imageSrc, imageAlt, dangerouslySetInnerHTML}:
+                             {children?: React.ReactNode, title: string, imageSrc?: string, imageAlt?: string, dangerouslySetInnerHTML?: string}) => {
     let image = <></>;
     if (imageSrc) {
-        image = <AvatarImage src={imageSrc}/>
+        image = <img src={imageSrc} className="text_image" alt={imageAlt ? imageAlt : "No alt given."}/>
     }
 
-    let text: JSX.Element;
+    let texts: JSX.Element[] = [];
+
 
     if (dangerouslySetInnerHTML != null) {
-        text = <p className="show-white-space" dangerouslySetInnerHTML={{__html: dangerouslySetInnerHTML}}></p>
+        texts.push(<article className="show-white-space" dangerouslySetInnerHTML={{__html: dangerouslySetInnerHTML}}></article>)
     } else {
-        text = <p className="show-white-space">{children}</p>
+        texts.push(<article className="show-white-space">{children}</article>)
     }
 
-    return (
-        <section className="animation-container-fit-content rounded-3xl border-bottom sm:border-2" id={title as string}>
-        <div className={styles.text_section}>
-            <div className={styles.text_holder}>
-                <div className="centered">
-                    <h2>{title}</h2>
+    let textDiv = <div className="text-start show-white-space text ">
+        <h2 className="text-start">{title}</h2>
+        {texts}
+    </div>
+
+    if (imageSrc) {
+        return <section className="animation-container lg:grid lg:grid-cols-2 lg:gap-6 p-3 sm:p-10 mx-auto"
+                        id={title as string}>
+            <div className="content-start">
+                <div className="max-w-3xl">
+                    {image}
                 </div>
-                {text}
             </div>
-            {image}
-        </div>
-        </section>);
-}
-
-const TextSection = ({children, title, imageSrc, dangerouslySetInnerHTML}:
-                             {children?: React.ReactNode, title: String, imageSrc?: String, dangerouslySetInnerHTML?: string}) => {
-    return <section className="animation-container-fit-content" id={title as string}>
-        {TextSectionBase({children, title, imageSrc, dangerouslySetInnerHTML})}
-    </section>
-}
-
-const FlexTextSection = ({children, title, imageSrc, dangerouslySetInnerHTML}:
-                         {children?: React.ReactNode, title: String, imageSrc?: String, dangerouslySetInnerHTML?: string}) => {
-    return <section className="animation-container-fit-content basis-1/2" id={title as string}>
-        {TextSectionBase({children, title, imageSrc, dangerouslySetInnerHTML})}
-    </section>
+            {textDiv}
+        </section>
+    } else {
+        return <section className="animation-container p-3 sm:p-10 mx-auto md:w-10/12"
+                        id={title as string}>
+            {textDiv}
+        </section>
+    }
 }
 
 
-export {TextSection, FlexTextSection, TextSectionBase};
+export {TextSection};

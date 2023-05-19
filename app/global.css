@@ -31,6 +31,8 @@ h1 {
 
 .float-right {float: right;}
 
+.text {word-wrap: break-word;}
+
 .animation-container {
     overflow: visible;
 }
@@ -38,20 +40,21 @@ h1 {
 .centered {margin:auto;text-align: center; align-content: center;}
 .full-width {width: 100%;}
 a {text-decoration: underline;}
-.project-img {
-    width: 35vw;
-    height: auto;
-    border-radius: 1em;
-    flex-shrink: 0;
-    margin:auto;
-    margin-top:1vh;
-}
+
 
 
 .show-white-space {
     white-space: pre-wrap;
 }
-
+.text_image {
+    width: 40vw;
+    height: auto;
+    border-radius: 1em;
+    flex-shrink: 0;
+    margin:auto;
+    margin-top:1vh;
+    margin-bottom: 1vh;
+}
 h2 {
     font-size: 2em;
     //color: rgba(63,226,254,1);
@@ -59,7 +62,7 @@ h2 {
 
 h3 {font-size: 1.3em;}
 
-hr {    border-top: 0vw solid whitesmoke;
+hr {    border-top: 0 solid whitesmoke;
 }
 .main-window {margin-left: 3%;margin-top: 3%;overflow: visible;}
 
@@ -75,9 +78,13 @@ hr {    border-top: 0vw solid whitesmoke;
 @media all and (max-width: 800px) {
     /* put your css styles in here */
     .main-window {margin-left: 1%; margin-top: 2%; align-content: center;}
-    .project-img {width: 80vw;}
+    .text_image {width: 80vw;}
 }
 
+@media all and (max-width: 1000px) {
+    .text_image {width: 70vw;}
+
+}
 @media all and (max-width: 1300px) {
     .tree-image {display: none;}
 

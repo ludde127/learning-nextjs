@@ -1,12 +1,9 @@
 import {cmsServer, getPage, getPages, redHatDisplay} from "@/app/utils";
-import {TextSectionBase} from "@/components/TextSection";
+import {TextSection} from "@/components/TextSection";
 import Title from "@/components/Title";
 import ContactMe from "@/components/ContactMe";
 import NavBar from "@/components/NavBar";
-import {MasonryItem, MasonryGrid} from "@/components/Masonry";
 
-import Head from "next/head";
-import {Meta} from "next/dist/lib/metadata/generate/meta";
 import {Metadata} from "next";
 
 type ApiPageResponse = {
@@ -56,18 +53,22 @@ const apiTextSectionDataToTextSection = (obj: TextSectionApi) => {
 
     let modifiedHtml = obj.fields.text; // This is the base html to be rendered
 
-    // Insert the image gotten from the api request
-    if (obj.fields.image) {
-        let imageUrl = cmsServer+"media/"+obj.fields.image;
+    // Make it into paragraphs
 
-        modifiedHtml = modifiedHtml.replace("[!IMG]",
-            `<Image src="${imageUrl}" class="project-img" alt="${obj.fields.image_alt}"/>`);
-    } else {
-        modifiedHtml = modifiedHtml.replace("[!IMG]", "");
+    let split: string[] = modifiedHtml.split("\n")
+    modifiedHtml = split.map(s => "<p>" + s + "</p>").join("")
+    // Insert the image gotten from the api request
+    let imageUrl: string | undefined = undefined;
+    if (obj.fields.image) {
+        imageUrl = cmsServer+"media/"+obj.fields.image;
     }
 
+    // It is no longer allowed to inject image.
+    modifiedHtml = modifiedHtml.replace("[!IMG]", "");
+
+
     // TODO DONT SET THIS SO UNSAFELY
-    return <TextSectionBase title={obj.fields.title} dangerouslySetInnerHTML={modifiedHtml}/>;
+    return <TextSection title={obj.fields.title} key={obj.fields.title} imageSrc={imageUrl} imageAlt={obj.fields.image_alt} dangerouslySetInnerHTML={modifiedHtml}/>;
 }
 
 
@@ -98,11 +99,10 @@ export default async function Page(params: {params: { page: string }, searchPara
                     <ContactMe email={"ludvig@llindholm.com"}
                                github={"https://github.com/ludde127"}
                                linkedIn={"https://www.linkedin.com/in/ludvig-lindholm-6509b4256/"}/>
-                    <MasonryGrid gutter={10}>
-                        {/* @ts-expect-error Async Server Component */}
-                        {number_of_pages > 0 ? <MasonryItem><NavBar/></MasonryItem> : null}
-                        {textSections.map((t, i) => <MasonryItem key={i}>{t}</MasonryItem>)}
-                    </MasonryGrid>
+
+                    {number_of_pages > 0 ? <NavBar/> : null}
+                    {textSections}
+
                 </div>
             </div>
         </div>

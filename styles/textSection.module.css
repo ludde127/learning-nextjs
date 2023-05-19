@@ -10,6 +10,8 @@
     min-height: 80px;
 }
 
+
+
 .text_section hr {
     max-width: 25%;
 
@@ -32,7 +34,6 @@
 
 .text_holder p {
     margin-left: 1%;
-    max-width: 400px;
 }
 
 .text_section > img {float:right;}

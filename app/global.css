@@ -6,7 +6,7 @@
 html {
     background-color: black;
     color: white;
-
+    overflow-y: scroll;
     width: 96vw;
 }
 h1 {
@@ -14,7 +14,19 @@ h1 {
     background: linear-gradient(120deg, rgba(0,179,57,1) 0%, rgba(63,206,254,1) 35%, rgba(123,245,109,1) 72%, rgba(0,255,166,1) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+}
 
+body::-webkit-scrollbar {
+    width: 12px;               /* width of the entire scrollbar */
+}
+
+body::-webkit-scrollbar-track {
+    background: linear-gradient(120deg, rgba(0,179,57,1) 0%, rgba(63,206,254,1) 35%, rgba(123,245,109,1) 72%, rgba(0,255,166,1) 100%);        /* color of the tracking area */
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: whitesmoke;    /* color of the scroll thumb */
+    border-radius: 20px;       /* roundness of the scroll thumb */
 }
 
 .border-bottom {border-bottom: white 2px solid;}

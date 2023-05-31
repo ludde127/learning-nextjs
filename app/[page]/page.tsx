@@ -91,6 +91,7 @@ export default async function Page(params: {params: { page: string }, searchPara
     //console.log(textSections)
     //let firstTextSection = textSections.shift();
     let number_of_pages = (await getPages()).length; // Only show navbar when more than one page
+
     return (<>
         <div className={redHatDisplay.className}>
             <div className="main-window">
@@ -100,7 +101,7 @@ export default async function Page(params: {params: { page: string }, searchPara
                                github={"https://github.com/ludde127"}
                                linkedIn={"https://www.linkedin.com/in/ludvig-lindholm-6509b4256/"}/>
 
-                    {number_of_pages > 0 ? <NavBar/> : null}
+                    {number_of_pages > 1 ? await NavBar() : null}
                     {textSections}
 
                 </div>
